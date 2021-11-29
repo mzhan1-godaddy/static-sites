@@ -1,0 +1,231 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Storybook</title><meta name="viewport" content="width=device-width,initial-scale=1"><base target="_parent"><style>:not(.sb-show-main) > .sb-main,
+  :not(.sb-show-nopreview) > .sb-nopreview,
+  :not(.sb-show-errordisplay) > .sb-errordisplay {
+    display: none;
+  }
+
+  .sb-show-main.sb-main-centered {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .sb-show-main.sb-main-centered #root {
+    box-sizing: border-box;
+    margin: auto;
+    padding: 1rem;
+    max-height: 100%; /* Hack for centering correctly in IE11 */
+  }
+
+  /* Vertical centering fix for IE11 */
+  @media screen and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .sb-show-main.sb-main-centered:after {
+      content: '';
+      min-height: inherit;
+      font-size: 0;
+    }
+  }
+
+  .sb-show-main.sb-main-fullscreen {
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+
+  .sb-show-main.sb-main-padded {
+    margin: 0;
+    padding: 1rem;
+    display: block;
+    box-sizing: border-box;
+  }
+
+  .sb-wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    font-family: "Nunito Sans", -apple-system, ".SFNSText-Regular", "San Francisco", BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow: auto;
+  }
+
+  .sb-heading {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    margin: 10px 0;
+    padding-right: 25px;
+  }
+
+  .sb-nopreview {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+
+  .sb-nopreview_main {
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.03);
+  }
+
+  .sb-nopreview_heading {
+    text-align: center;
+  }
+
+  .sb-errordisplay {
+    border: 20px solid rgb(187, 49, 49);
+    background: #222;
+    color: #fff;
+    z-index: 999999;
+  }
+
+  .sb-errordisplay_code {
+    padding: 10px;
+    background: #000;
+    color: #eee;
+    font-family: "Operator Mono", "Fira Code Retina", "Fira Code", "FiraCode-Retina", "Andale Mono", "Lucida Console", Consolas, Monaco, monospace;
+  }
+
+  .sb-errordisplay pre {
+    white-space: pre-wrap;
+  }</style><script>/* globals window */
+  /* eslint-disable no-underscore-dangle */
+  try {
+    if (window.top !== window) {
+      window.__REACT_DEVTOOLS_GLOBAL_HOOK__ = window.top.__REACT_DEVTOOLS_GLOBAL_HOOK__;
+      window.__VUE_DEVTOOLS_GLOBAL_HOOK__ = window.top.__VUE_DEVTOOLS_GLOBAL_HOOK__;
+      window.top.__VUE_DEVTOOLS_CONTEXT__ = window.document;
+    }
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.warn('unable to connect to top frame for connecting dev tools');
+  }
+
+  window.onerror = function onerror(message, source, line, column, err) {
+    if (window.CONFIG_TYPE !== 'DEVELOPMENT') return;
+    // eslint-disable-next-line no-var, vars-on-top
+    var xhr = new window.XMLHttpRequest();
+    xhr.open('POST', '/runtime-error');
+    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    xhr.send(
+      JSON.stringify({
+        /* eslint-disable object-shorthand */
+        message: message,
+        source: source,
+        line: line,
+        column: column,
+        error: err && { message: err.message, name: err.name, stack: err.stack },
+        origin: 'preview',
+        /* eslint-enable object-shorthand */
+      })
+    );
+  };</script><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><script>(function(n){
+var _r=false;
+var _u=n&&n.userAgent;
+var _iv=_u&&_u.match(/(MSIE (\d+))|(Trident.+rv:(\d+))/);
+if(_iv&&_iv.length==5) {
+  var _siv=_iv[2]||_iv[4];
+  _iv=parseInt(_siv,10);
+  if(_iv<=11) {
+    _r=true;
+  }
+}
+var _ev=!_r&&_u&&_u.match(/Edge\/(\d+)/);
+if(_ev&&_ev.length==2) {
+  var _sev=_ev[1];
+  _ev=parseInt(_sev,10);
+  if(_ev<=78) {
+    _r=true;
+  }
+}
+if(_r) location.href='https://www.godaddy.com/upgrade-your-browser';
+})(navigator);</script><link rel="preload" href="//img6.wsimg.com/ux/fonts/gd-sage/1.0/gd-sage-bold.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="//img6.wsimg.com/ux/fonts/sherpa/2.0/gdsherpa-vf.woff2" as="font" type="font/woff2" crossorigin><style>@font-face {
+  font-family: gd-sage;
+  src: url(//img6.wsimg.com/ux/fonts/gd-sage/1.0/gd-sage-bold.woff2) format("woff2")
+  , url(//img6.wsimg.com/ux/fonts/gd-sage/1.0/gd-sage-bold.woff) format("woff");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: gdsherpa;
+  src: url(//img6.wsimg.com/ux/fonts/sherpa/2.0/gdsherpa-vf.woff2) format("woff2")
+  ;
+  font-weight: 300 700;
+  font-display: swap;
+}</style><link rel="stylesheet" href="https://img6.wsimg.com/wrhs/9ab60070ebd5de5a59429fb5cbb6fa1d/uxcore2.min.css" media="all"><link rel="stylesheet" href="https://img6.wsimg.com/wrhs/9ba44b422234adebaa6e164b1244a116/noheader.min.css" media="all" id="header-asset"><style>/* godaddy:brand v7 prod */ :root{--ux-1s0t9v0: 0.7023319615912209rem;--ux-vvspv2: 1rem;--ux-97h3vl: #d4dbe0;--ux-1067ph9: "gdsherpa",Helvetica,Arial,sans-serif;--ux-sm2he3: 500;--ux-1w31hux: 1.5;--ux-1fi898z: #708090;--ux-le566q: #999;--ux-16m8zm9: #905;--ux-ci632o: #690;--ux-1jw5w47: #9a6e3a;--ux-ps2t1y: #07a;--ux-1b06mhh: #DD4A68;--ux-gw3pxw: #e90;--ux-2domxp: #d6d6d6;--ux-2jubes: 4px;--ux-wikx71: #1976d2;--ux-1np4r62: transparent;--ux-oc0naw: 1rem;--ux-16aixzc: 1rem;--ux-18ime9a: 1.375rem;--ux-1le7uoa: #111;--ux-1fzd9l5: transparent;--ux-jg1026: 1.5rem;--ux-1s5tndb: 0;--ux-cao06b: #fff;--ux-1leynsm: #111;--ux-by6mab: #d4dbe0;--ux-k4t5bc: #00a4a6;--ux-yscvvt: #ef6c0f;--ux-3seoiy: #744bc4;--ux-ifyf3f: #aa6d00;--ux-1c4rju4: #1976d2;--ux-1qsbael: #db1802;--ux-vsd31q: #00a4a6;--ux-1afwtm7: #ef6c0f;--ux-3uv4tc: #744bc4;--ux-iievdt: #aa6d00;--ux-cxbe8g: 1rem;--ux-ekirkm: #f5f2f0;--ux-145pjib: #000;--ux-jqgd0i: #111;--ux-1pfsknb: 1.423828125rem;--ux-1smybcz: .875rem;--ux-1dbu8ei: #111;--ux-1nr6ynb: 500;--ux-1lxyxj9: normal;--ux-1oqjeuu: 0;--ux-10jlyin: #000;--ux-99lo9: #1976d2;--ux-ux0m8o: #db1802;--ux-1wlhylv: transparent;--ux-p4h24g: .875rem;--ux-9ic57q: 2rem;--ux-9wtaa3: "gdsherpa",Helvetica,Arial,sans-serif;--ux-3z6ccd: 500;--ux-hm1ty7: 1.5;--ux-15ks663: "gdsherpa",Helvetica,Arial,sans-serif;--ux-aarlu5: 700;--ux-h93mi7: 1.5;--ux-p4wcd9: "gdsherpa",Helvetica,Arial,sans-serif;--ux-1a9e4a3: 500;--ux-1pw8hzd: 1.25;--ux-1n2ego0: .8rem;--ux-uzt9o6: 0;--ux-gfnupv: "gdsherpa",Helvetica,Arial,sans-serif;--ux-j40yyd: 700;--ux-jw5s9j: 1.5;--ux-12zlqr9: .875rem;--ux-1wbe5uo: .75rem;--ux-1owc8nc: transparent;--ux-ut3xrx: #09757a;--ux-f7kpiw: #00a4a6;--ux-1gutwvn: "gdsherpa",Helvetica,Arial,sans-serif;--ux-g9ierp: 500;--ux-1dje42v: 1.5;--ux-shg991: "gd-sage","Times New Roman",serif;--ux-c539b7: 500;--ux-p25s1t: 1.25;--ux-1klxlj4: 1rem;--ux-1q1acnc: .875rem;--ux-uoagkw: 500;--ux-1jw1vht: #bac0c3;--ux-bs151i: #d6d6d6;--ux-acokjr: #d8efef;--ux-1jc2o1e: #004249;--ux-vhce6u: #d6d6d6;--ux-195rcgy: 500;--ux-1g1i1da: #2b2b2b;--ux-1nu8itt: #fff;--ux-1glcx6s: #2b2b2b;--ux-1szqg1n: #111;--ux-1p4dc1z: transparent;--ux-14n8p36: #1976d2;--ux-1bul8sw: 500;--ux-11du3iw: 500;--ux-1qbop1h: 900;--ux-1c9yx5s: #bac0c3;--ux-2okpka: #bac0c3;--ux-1xliuhi: #00a4a6;--ux-1no0ng9: #fff;--ux-1rwkbsh: transparent;--ux-2rqapw: #09757a;--ux-117cu43: "gdsherpa",Helvetica,Arial,sans-serif;--ux-8n6y9x: 500;--ux-mgbt9j: 1.5;--ux-1ouw3v4: #e20087;--ux-y66o47: #111;--ux-2lqd62: .75rem;--ux-bt2zqe: 700;--ux-1qbn65p: #f4f8fc;--ux-1ds8u13: transparent;--ux-1bdtclp: transparent;--ux-kdwujq: #111;--ux-1lv81i7: 1.2rem;--ux-28rjk: 500;--ux-1x4w1cu: #f5f5f5;--ux-1oqmm01: 1em;--ux-vk6635: #d6d6d6;--ux-y3mv0: #d6d6d6;--ux-e0ldzz: #003a15;--ux-ceou01: #ae1302;--ux-io2uwb: transparent;--ux-1vw9arb: #d6d6d6;--ux-1i7a912: #d3c1f7;--ux-b0nj5b: transparent;--ux-18hc5o7: transparent;--ux-16apl5s: 2;--ux-1zta3b: #f4f8fc;--ux-1llin8a: 1.25em;--ux-7a9pn9: 700;--ux-1qsry5z: normal;--ux-1tx8bkn: #600801;--ux-1gpjrd8: #d6d6d6;--ux-1p5s1n4: #111;--ux-1nx9aml: #2b2b2b;--ux-1im0suq: #000;--ux-11i8wqh: #fff;--ux-1kpdpz9: transparent;--ux-1nk9qds: #767676;--ux-13yftfi: transparent;--ux-4kfa9g: transparent;--ux-492jj: transparent;--ux-ez3zlc: none;--ux-1ysi6jp: #111;--ux-ji3i29: 700;--ux-11ovj8p: .875rem;--ux-emb11o: #004249;--ux-9qpf6c: #00a4a6;--ux-h6e7c1: #fff;--ux-1a8ld87: #111;--ux-1e4z3ma: transparent;--ux-cup4ju: #d8efef;--ux-1kyybpb: #09757a;--ux-1ld6fs6: .875rem;--ux-1xzzhyl: #111;--ux-16dmnu8: #767676;--ux-1mh0ktr: #f4f8fc;--ux-1utwv7e: #111;--ux-15qjz45: transparent;--ux-1e85ids: #09757a;--ux-1m7qrkf: #f5f7f8;--ux-unx9i2: #00a4a6;--ux-c5mlr8: #111;--ux-t04p4h: #fff;--ux-1rfp50t: #ddeaf8;--ux-1u2jy43: #f4f8fc;--ux-em0gr: #9fffb8;--ux-1tgn1ki: #ffeea9;--ux-ako3l5: #111;--ux-7j9lri: #f5f7f8;--ux-1v7sr65: transparent;--ux-11cn5p4: #00a4a6;--ux-772dne: .875rem;--ux-1il25hb: rgba(245,245,245,0.9);--ux-1hfks3w: 500;--ux-xkgc86: #2b2b2b;--ux-1marogz: #ae1302;--ux-17htz86: #fff;--ux-l7zq7p: #f5f7f8;--ux-vuekow: #111;--ux-1iiiqs3: #ffbbbb;--ux-bsmnmn: #fbd9ed;--ux-60ig31: transparent;--ux-1ymu8yg: #111111;--ux-mk2ln9: #d6d6d6;--ux-c9uvim: #00a4a6;--ux-187j9dd: #f4f8fc;--ux-1hnbfne: #00a4a6;--ux-1r87102: #fff;--ux-w7826f: #111;--ux-7wu8i7: #111;--ux-1o8cusa: #fff;--ux-18lg5k: #a6fff8;--ux-qnydfw: #111;--ux-e5ryhe: #111;--ux-1mph5ru: #111;--ux-l48e4z: #111;--ux-3i0zzw: transparent;--ux-10kwq3t: #09757a;--ux-ivu8ja: #f5f7f8;--ux-1j87vvn: #00a4a6;--ux-9i7okd: #F5F7F8;--ux-1xxygco: #5E5E5E;--ux-pdb1vi: #111;--ux-15ftva1: 80%;--ux-3rg0ia: #bac0c3;--ux-tnqad1: #00a4a6;--ux-18hlgn4: #f4f8fc;--ux-bg7olm: #f4f8fc;--ux-w3lhdp: #600801;--ux-1331zgr: #111;--ux-bgke81: #444;--ux-xaxxaq: #111;--ux-1ygutpa: #111;--ux-1rklle7: #2b2b2b;--ux-5jg1u4: normal;--ux-1utwyy9: #444;--ux-1njwmlo: #111;--ux-1novelo: #ae1302;--ux-n0tova: #db1802;--ux-5mgu1z: #444;--ux-1ixzvrg: #00a4a6;--ux-5n4ibx: #d4dbe0;--ux-1iwsz6x: #111;--ux-t61743: #1BDBDB;--ux-13vrbmz: #fff;--ux-1xeg43i: #111;--ux-asxrqp: #aab7c2;--ux-170hi5o: #f5f7f8;--ux-yp4309: #09757a;--ux-sji811: #00a63f;--ux-lt9ehq: normal;--ux-11sf7bz: transparent;--ux-1hei7eo: #db1802;--ux-1she0w: #111;--ux-8qoawt: #111;--ux-kkdx4n: #111;--ux-17fhz5j: #2b2b2b;--ux-1oppzsi: transparent;--ux-1tqourc: transparent;--ux-1sjqecz: #f5f5f5;--ux-a6rxy5: #00a4a6;--ux-144ksq0: #fff;--ux-1c5c9sy: #09757a;--ux-16d2ul: #db1802;--ux-6wr86x: #aab7c2;--ux-gdy377: #f4f8fc;--ux-k4fkva: #111;--ux-1ehwjjs: #00a4a6;--ux-1uyxcq5: #fff;--ux-953c7l: #111;--ux-1wp39lq: #00A4A6;--ux-1pvg8dx: #00a4a6;--ux-18vqnuy: #09757a;--ux-car98n: #db1802;--ux-qebq9u: #f4f8fc;--ux-6gm31z: #111;--ux-11rtwg8: #f4f8fc;--ux-1e4ese5: #111;--ux-926l8f: #600801;--ux-17znn9m: #fff;--ux-vhbo95: #111;--ux-lrwu2k: #fff;--ux-ran6wz: #444;--ux-1ckzto6: #fff;--ux-1ely98k: #111;--ux-1vtao7i: #111;--ux-18qj45h: transparent;--ux-1vjximi: #db1802;--ux-14gkznj: #744bc4;--ux-15isxca: #fff;--ux-83yt9q: #ae1302;--ux-tt846z: #fff;--ux-1q4q36s: #db1802;--ux-9cq6k1: #fff;--ux-ix2s5q: #00a4a6;--ux-19ykcyj: #fff;--ux-1iqicpb: rgba(255,255,255,0.2);--ux-c3e9y2: #111;--ux-1uiriv5: transparent;--ux-1i83650: #111;--ux-44qvxk: #111;--ux-rm5d87: #d8efef;--ux-lgzajt: #00a4a6;--ux-vqhzzz: #fff;--ux-vwf4ne: #111;--ux-c624hh: #fff;--ux-1e7hthc: #09757a;--ux-wxwyd1: rgba(0,0,0,0.85);--ux-i4fj7k: #fff;--ux-1lpd00q: #613ea3;--ux-n9sg1c: transparent;--ux-1gkt6kl: #1BDBDB;--ux-1ar08ze: transparent;--ux-h6e91r: #1BDBDB;--ux-1d8mwhj: #00a4a6;--ux-9gvyua: #111;--ux-1ap6ofp: #db1802;--ux-ny8bg2: #00a63f;--ux-aqzfxj: #fff;--ux-1g47djv: #fed317;--ux-15n32fv: #fff;--ux-1ajy4cm: #fff;--ux-38c183: #111;--ux-1l8kymk: #fff;--ux-1qc8i9l: #09757a;--ux-1a6cjk7: transparent;--ux-p3e15m: #db1802;--ux-1f7pqen: #fff;--ux-e1mf41: #145fa9;--ux-1m9ys0v: #767676;--ux-1ep3kxj: #003a15;--ux-lv1r6m: #aa6d00;--ux-1fhc073: #ae1302;--ux-1iwdp0z: #b4006c;--ux-md12r6: #00a4a6;--ux-177t0p3: #fff;--ux-cuskv8: #09757a;--ux-wi4oww: #fff;--ux-1j2zkam: #fff;--ux-zk0uja: #fff;--ux-tqp5z3: #fff;--ux-17o0ohq: #fff;--ux-s2edbm: #fff;--ux-c419qd: #fff;}</style><link href="//img6.wsimg.com/ux/favicon/manifest.json" rel="manifest"><link rel="apple-touch-icon" sizes="57x57" href="//img6.wsimg.com/ux/favicon/apple-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="//img6.wsimg.com/ux/favicon/apple-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="//img6.wsimg.com/ux/favicon/apple-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="//img6.wsimg.com/ux/favicon/apple-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="//img6.wsimg.com/ux/favicon/apple-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="//img6.wsimg.com/ux/favicon/apple-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="//img6.wsimg.com/ux/favicon/apple-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="//img6.wsimg.com/ux/favicon/apple-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="//img6.wsimg.com/ux/favicon/apple-icon-180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="//img6.wsimg.com/ux/favicon/android-icon-192x192.png"><link rel="icon" type="image/png" sizes="16x16" href="//img6.wsimg.com/ux/favicon/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="//img6.wsimg.com/ux/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="//img6.wsimg.com/ux/favicon/favicon-96x96.png"><link rel="mask-icon" href="//img6.wsimg.com/ux/favicon/safari-pinned-tab.svg" color="#52c4cb"><meta name="msapplication-TileColor" content="#111111"><meta name="msapplication-TileImage" content="//img6.wsimg.com/ux/favicon/ms-icon-144x144.png"><meta name="msapplication-config" content="//img6.wsimg.com/ux/favicon/browserconfig.xml"><meta name="theme-color" content="#111"><link rel="manifest" href="//img6.wsimg.com/ux/favicon/manifest.json"><style>#root[hidden],
+      #docs-root[hidden] {
+        display: none !important;
+      }</style></head><body><div id="header-fe15242cb561fd101bbbc9e8374e864d"><div></div></div><div id="footer-fe15242cb561fd101bbbc9e8374e864d"><div></div></div><script>window.ux = window.ux || {};
+window.ux.eldorado = window.ux.eldorado || {};
+
+(function trfqConfig() {
+  var w = window;
+  var page = w.ux.eldorado.page || {};
+  w._gaDataLayer = w._gaDataLayer || [];
+  w._expDataLayer = w._expDataLayer || [];
+  w._gaDataLayer = [{'loadSource': 'uxpHeader'}].concat(w._gaDataLayer, (w.ux && w.ux.gaconfig) || []);
+  w._trfq = w._trfq || [];
+})();</script><script src="https://img6.wsimg.com/wrhs/45a26fc1648d6b6071970226c98bbbbf/tcc.min.js" async></script><script src="https://img6.wsimg.com/poly/v3/polyfill.min.js?features=Promise,Promise.prototype.finally,Intl.~locale.en-US&rum=0&unknown=polyfill&flags=gated"></script><script src="https://img6.wsimg.com/wrhs/cd428397312f793926ea2966da4ce20b/uxcore2.min.js"></script><script src="https://img6.wsimg.com/wrhs/e0b18eb3f0d1933c7d0b3a94bc7ab664/vendor~uxcore2.min.js"></script><script src="https://img6.wsimg.com/wrhs/d6c7b1acb132140b70d61ad9ce6bc527/heartbeat.min.js" async></script><script src="https://img6.wsimg.com/wrhs/6ece27cec06853a748696df0cba93d32/noheader.min.js"></script><script>ux.eldorado.data.set({"app":"uxp-tester","appName":"Hydra Tester","currency":"USD","countryName":"United States","env":"prod","excludeGDBrandFonts":["ar","el","en-IN","hi","ja","ko","mr","pt-BR","ta","th","ru","uk","vi","zh"],"dir":"ltr","features":{},"languageName":"English","logos":{"mobile":"","desktop":""},"manifest":"NoHeader","manifestVersion":"31.1.10","market":"en-US","messages":{"PC:AppHeader:Header:MyAccountHome":"My Account Home","PC:AppHeader:Header:AcctDelegationLabel":"{delegate} logged in as: {firstName} {lastName}","PC:AppHeader:Header:AcctImpersonationExitLabel":"Stop impersonation","PC:AppHeader:Header:AcctDelegationExitLabel":"Exit access","Sales:Tealium:PrivacyPolicy:acceptButton":"Accept","Sales:Tealium:PrivacyPolicy:advertisingText":"Measures our advertising effectiveness to help us make it more relevant to you.","Sales:Tealium:PrivacyPolicy:analyticsText":"Collects anonymous data about how visitors use our site and how it performs. We use this to improve our products, services and user experience.","Sales:Tealium:PrivacyPolicy:CategoryName:Advertising":"Advertising","Sales:Tealium:PrivacyPolicy:CategoryName:Analytics":"Performance","Sales:Tealium:PrivacyPolicy:CategoryName:Social":"Social Media","Sales:Tealium:PrivacyPolicy:CategoryName:Support":"Support","Sales:Tealium:PrivacyPolicy:continueButton":"Continue","Sales:Tealium:PrivacyPolicy:declineButton":"Decline","Sales:Tealium:PrivacyPolicy:default":"Default","Sales:Tealium:PrivacyPolicy:dismissButton":"Dismiss","Sales:Tealium:PrivacyPolicy:manageSettings":"Manage Settings","Sales:Tealium:PrivacyPolicy:optOutDialogCategoryLabel":"Category","Sales:Tealium:PrivacyPolicy:optOutDialogDescriptionLabel":"Description","Sales:Tealium:PrivacyPolicy:optOutDialogMsg":"Our sites use tools, such as cookies, to understand how you use our services and to improve both your experience and our advertising relevance. Here, you can opt-out of such tracking.","Sales:Tealium:PrivacyPolicy:optOutDialogMsgTitle":"Your Privacy Options","Sales:Tealium:PrivacyPolicy:optOutDialogStatusLabel":"Status","Sales:Tealium:PrivacyPolicy:optOutDialogTitle":"Your Privacy Options","Sales:Tealium:PrivacyPolicy:optOutTealiumCookiesDesc":"Enables essential services and functionality, including identity verification, service continuity and site security. Opt-Out is not available.","Sales:Tealium:PrivacyPolicy:optOutTealiumCookiesTitle":"Essential","Sales:Tealium:PrivacyPolicy:privacyBannerText":"We use tools, such as cookies, to enable essential services and functionality on our site and to collect data on how visitors interact with our site, products and services. By clicking Accept, you agree to our use of these tools for advertising, analytics and support","Sales:Tealium:PrivacyPolicy:privacyMoreInfoLink":"Learn More","Sales:Tealium:PrivacyPolicy:privacyTitle":"We serve cookies.","Sales:Tealium:PrivacyPolicy:saveButton":"Save","Sales:Tealium:PrivacyPolicy:socialText":"To enhance user experience, and make it easier to share content, some pages contain tools linked to social media services. For details on how they use information that is gathered, please see the service provider’s website.","Sales:Tealium:PrivacyPolicy:supportText":"Powers interactive services such as chat support and customer feedback tools.","Shared:Common:OK":"OK","Shared:AccountDelegation:validateAuthTitle":"Session Expired","Shared:AccountDelegation:validateAuthShopper":"You aren't logged in as shopper {displayName}/{shopperId} anymore.","Shared:AccountDelegation:validateAuthMessage":"You can close this tab or log in again as this shopper.","Shared:AccountDelegation:pageAuthRefreshMessage":"There seems to be a discrepancy with your authentication, please click the button below to attempt to repair it.","Shared:AccountDelegation:deny-all-title":"Access Restricted","Shared:AccountDelegation:deny-all-msg":"You can't access this area. Only the account holder can access this area.","Shared:BrowserDeprecationBanner:HoldingUsBack":"We're not ageist, but your old browser is holding us back.","Shared:BrowserDeprecationBanner:LatestVersion":"Update to the latest version to see this site in all its glory.","Shared:BrowserDeprecationBanner:NewestBrowsers":"We built our website for newer browsers. Update now for the best experience.","Shared:BrowserDeprecationBanner:UpdateBrowser":"Update {browser}","Shared:BrowserDeprecationBanner:GetBrowser":"Get {browser}","Shared:BrowserDeprecationBanner:DownloadChrome":"https://www.google.com/chrome/","Shared:BrowserDeprecationBanner:DownloadFirefox":"https://www.mozilla.org/firefox/new/","Shared:BrowserDeprecationBanner:DownloadSafari":"https://www.apple.com/safari/","Shared:BrowserDeprecationBanner:DownloadEdge":"https://www.microsoft.com/windows/microsoft-edge"},"privateLabelId":1,"privateLabelName":"GoDaddy","privateLabelType":1,"progId":"GoDaddy","googleAnalyticsId":"","split":"","traffic":"inline","urls":{"account":{"href":"https://account.godaddy.com"},"accountHome":{"href":"https://account.godaddy.com/overview"},"bigthree":{"domains":{"href":"https://dcc.godaddy.com/domains","rel":"nofollow"},"hosting":{"href":"https://myh.godaddy.com"},"email":{"href":"https://productivity.godaddy.com/emailchooser"},"ssl":{"href":"https://certs.godaddy.com"}},"blog":{"href":"https://www.godaddy.com/blog"},"checkout":{"href":"https://cart.godaddy.com"},"contactUs":{"href":"https://www.godaddy.com/contact-us"},"cookies":{"href":"https://www.godaddy.com/legal/agreements/cookie-policy"},"currencyList":{"href":"https://gui.godaddy.com/preference/currency/set"},"cdn":{"href":"//img6.wsimg.com/"},"domainSearch":{"href":"https://www.godaddy.com"},"gdAssets":{"href":"https://www.godaddy.com/assets"},"gui":{"href":"https://gui.godaddy.com/pcjson/salesheader"},"help":{"href":"https://www.godaddy.com/help"},"helpCenterContactUs":{"href":"https://www.godaddy.com/help/contact-us"},"home":{"href":"https://www.godaddy.com"},"vhLogoLink":{"href":"https://dashboard.api.godaddy.com/vh-login-redirect"},"manageDomains":{"href":"https://dcc.godaddy.com/domains","rel":"nofollow"},"manageHosting":{"href":"https://myh.godaddy.com"},"manageWebsites":{"href":"https://account.godaddy.com/products?accid=44"},"markets":{"ar-AE":{"href":"https://ae.godaddy.com/ar"},"da-DK":{"href":"https://dk.godaddy.com"},"de-AT":{"href":"https://at.godaddy.com"},"de-CH":{"href":"https://ch.godaddy.com"},"de-DE":{"href":"https://de.godaddy.com"},"el-GR":{"href":"https://gr.godaddy.com"},"en-AE":{"href":"https://ae.godaddy.com"},"en-AU":{"href":"https://au.godaddy.com"},"en-CA":{"href":"https://ca.godaddy.com"},"en-GB":{"href":"https://uk.godaddy.com"},"en-HK":{"href":"https://hk.godaddy.com/en"},"en-IE":{"href":"https://ie.godaddy.com"},"en-IL":{"href":"https://il.godaddy.com/en"},"en-IN":{"href":"https://in.godaddy.com"},"en-MY":{"href":"https://my.godaddy.com"},"en-NZ":{"href":"https://nz.godaddy.com"},"en-PH":{"href":"https://ph.godaddy.com"},"en-PK":{"href":"https://pk.godaddy.com"},"en-SG":{"href":"https://sg.godaddy.com"},"en-US":{"href":"https://www.godaddy.com"},"en-ZA":{"href":"https://za.godaddy.com"},"es-AR":{"href":"https://www.godaddy.com/es"},"es-CL":{"href":"https://www.godaddy.com/es"},"es-CO":{"href":"https://www.godaddy.com/es"},"es-ES":{"href":"https://es.godaddy.com"},"es-MX":{"href":"https://www.godaddy.com/es"},"es-PE":{"href":"https://www.godaddy.com/es"},"es-US":{"href":"https://www.godaddy.com/es"},"es-VE":{"href":"https://www.godaddy.com/es"},"fi-FI":{"href":"https://fi.godaddy.com"},"fr-BE":{"href":"https://be.godaddy.com/fr"},"fr-CA":{"href":"https://ca.godaddy.com/fr"},"fr-CH":{"href":"https://ch.godaddy.com/fr"},"fr-FR":{"href":"https://fr.godaddy.com"},"hi-IN":{"href":"https://in.godaddy.com/hi"},"id-ID":{"href":"https://id.godaddy.com"},"it-CH":{"href":"https://ch.godaddy.com/it"},"it-IT":{"href":"https://it.godaddy.com"},"ja-JP":{"href":"https://jp.godaddy.com"},"ko-KR":{"href":"https://kr.godaddy.com"},"nb-NO":{"href":"https://no.godaddy.com"},"nl-BE":{"href":"https://be.godaddy.com"},"nl-NL":{"href":"https://nl.godaddy.com"},"pl-PL":{"href":"https://pl.godaddy.com"},"pt-BR":{"href":"https://br.godaddy.com"},"pt-PT":{"href":"https://pt.godaddy.com"},"qa-PS":{"href":"https://www.godaddy.com"},"qa-PZ":{"href":"https://www.godaddy.com"},"qa-QA":{"href":"https://www.godaddy.com"},"ru-RU":{"href":"https://ru.godaddy.com"},"sv-SE":{"href":"https://se.godaddy.com"},"th-TH":{"href":"https://th.godaddy.com"},"tr-TR":{"href":"https://tr.godaddy.com"},"uk-UA":{"href":"https://ua.godaddy.com"},"vi-VN":{"href":"https://vn.godaddy.com"},"zh-HK":{"href":"https://hk.godaddy.com"},"zh-SG":{"href":"https://sg.godaddy.com/zh"},"zh-TW":{"href":"https://tw.godaddy.com"}},"notifications":{"api":{"href":"https://mya.godaddy.com/webapi/notifications"},"cache":{"href":"//img1.wsimg.com/mya/notifications/cache.html"},"endpoint":{"href":"https://content.godaddy.com/Martech/PersonalizedContentService/NotificationBell/JSON?rp_context=offer_content_service&marketId=en-US"}},"pcgo":{"href":"https://gui.godaddy.com/pcgo/sales"},"pin":{"href":"https://mya.godaddy.com/pin"},"privacy":{"href":"https://www.godaddy.com/legal/agreements/privacy-policy?target=_blank","target":"_blank"},"pro":{"href":"https://pro.godaddy.com"},"products":{"href":"https://account.godaddy.com/products?go_redirect=disabled"},"proHome":{"href":"https://www.godaddy.com/pro"},"proHomeApp":{"href":"https://pro.godaddy.com/launch/managewp?landingScreen=pro-home"},"proHub":{"href":"https://hub.godaddy.com"},"renewals":{"href":"https://account.godaddy.com/subscriptions"},"requestACall":{"href":"https://www.godaddy.com/contact-us/request-a-call"},"resetPin":{"href":"https://account.godaddy.com/security/login-info/edit"},"sso":{"exitDelegation":{"href":"https://sso.godaddy.com/cookie/switchback"},"restoreCookie":{"href":"https://sso.godaddy.com/cookie/restore"},"createAccount":{"href":"https://sso.godaddy.com/account/create?realm=idp&path=%2F&app=www"},"o365Login":{"href":"https://sso.godaddy.com?app=o365&realm=pass","target":"_blank"},"login":{"href":"https://sso.godaddy.com?realm=idp&path=%2F&app=www"},"logout":{"href":"https://sso.godaddy.com/logout?realm=idp"}},"store":{"href":"https://companystore.godaddy.net"},"utos":{"href":"https://www.godaddy.com/legal/agreements/universal-terms-of-service-agreement"},"viewPin":{"href":"https://account.godaddy.com/security/login-info/edit"},"webmailLogin":{"href":"https://email.godaddy.com?target=_blank","target":"_blank"},"wechat":{"href":"https://www.godaddy.com"}},"supportMatrix":{"Chrome":["84.0"],"Firefox":["77.0"],"Safari":["12.0"],"Internet Explorer":[null,"11.0"],"Edge":["85.0","78.0"],"Samsung Internet":["10.2"]},"whitelistedUserAgents":["HeadlessChrome","crm-desktop","FxiOS","Googlebot","Google-Read-Aloud","AdsBot-Google-Mobile","EdgiOS","Chrome-Lighthouse"]});
+    if (ux.eldorado.page) {
+      Object.keys(ux.eldorado.page).forEach(function (prop) {
+        var value = ux.eldorado.page[prop];
+        if (typeof value === 'object' && !Array.isArray(value)) {
+          ux.eldorado.data.merge(prop, value);
+        } else {
+          ux.eldorado.data.set(prop, value);
+        }
+      });
+    }
+    ux.eldorado.data.merge('utagData', {"app_name":"uxp-tester","pl_id":1,"timestamp":1638213671958,"strings":{"acceptButton":"Accept","advertisingText":"Measures our advertising effectiveness to help us make it more relevant to you.","analyticsText":"Collects anonymous data about how visitors use our site and how it performs. We use this to improve our products, services and user experience.","CategoryName_Advertising":"Advertising","CategoryName_Analytics":"Performance","CategoryName_Social":"Social Media","CategoryName_Support":"Support","continueButton":"Continue","declineButton":"Decline","default":"Default","dismissButton":"Dismiss","manageSettings":"Manage Settings","optOutDialogCategoryLabel":"Category","optOutDialogDescriptionLabel":"Description","optOutDialogMsg":"Our sites use tools, such as cookies, to understand how you use our services and to improve both your experience and our advertising relevance. Here, you can opt-out of such tracking.","optOutDialogMsgTitle":"Your Privacy Options","optOutDialogStatusLabel":"Status","optOutDialogTitle":"Your Privacy Options","optOutTealiumCookiesDesc":"Enables essential services and functionality, including identity verification, service continuity and site security. Opt-Out is not available.","optOutTealiumCookiesTitle":"Essential","privacyBannerText":"We use tools, such as cookies, to enable essential services and functionality on our site and to collect data on how visitors interact with our site, products and services. By clicking Accept, you agree to our use of these tools for advertising, analytics and support","privacyMoreInfoLink":"Learn More","privacyTitle":"We serve cookies.","saveButton":"Save","socialText":"To enhance user experience, and make it easier to share content, some pages contain tools linked to social media services. For details on how they use information that is gathered, please see the service provider’s website.","supportText":"Powers interactive services such as chat support and customer feedback tools."},"urls":{"privacy":"https://www.godaddy.com/legal/agreements/privacy-policy?target=_blank"},"pl_ga_account_id":""});
+    ux.eldorado.data.merge('utagData', window.ux.utagconfig);
+    (function() {
+      if (!window.utag_data) { window.utag_data = {}; };
+
+      Object.keys(ux.eldorado.data.utagData).forEach(function (key) {
+        window.utag_data[key] = ux.eldorado.data.utagData[key];
+      });
+
+    })();
+    setTimeout(function() {
+      window._gaDataLayer = window._gaDataLayer || [];
+      window._gaDataLayer.push({ 'tcc.tealiumLoaded': true });
+
+      var utagEl = document.createElement('script');
+      utagEl.async = true;
+      utagEl.src = 'https://tags.tiqcdn.com/utag/godaddy/godaddy/prod/utag.js';
+      document.getElementsByTagName('script')[0].parentNode.appendChild(utagEl);
+    }, 0);
+
+  ux.data = {"urls":{"home":{"href":"https://www.godaddy.com"},"domains":{"href":"https://dcc.godaddy.com/domains","rel":"nofollow"},"hosting":{"href":"https://myh.godaddy.com"},"email":{"href":"https://productivity.godaddy.com/emailchooser"},"ssl":{"href":"https://certs.godaddy.com"},"login":{"href":"https://sso.godaddy.com?realm=idp&path=%2F&app=www"},"logout":{"href":"https://sso.godaddy.com/logout?realm=idp"},"privacy":{"href":"https://www.godaddy.com/legal/agreements/privacy-policy?target=_blank","target":"_blank"},"utos":{"href":"https://www.godaddy.com/legal/agreements/universal-terms-of-service-agreement"}},"privateLabelId":1,"privateLabelName":"GoDaddy","privateLabelType":1,"progId":"GoDaddy","manifest":"NoHeader","manifestVersion":"31.1.10","market":"en-US","currency":"USD","countryName":"United States","languageName":"English","app":"uxp-tester","appName":"Hydra Tester","env":"prod","split":"","cdn":{"vendors~browser-deprecation-banner.header-chunk":"https://img6.wsimg.com/wrhs/8a03569e98cc15fee72c40589ca461b0/vendors~browser-deprecation-banner.header-chunk.min.js"}};
+  ux.data.policy = window._policy;
+  ux.getCDNPath = function getCDNPath(chunkName) {
+    var returnChunk = chunkName.replace(/\.min\.js|\.js/, '');
+    return ux.data.cdn[returnChunk] || chunkName;
+  }</script><script>(function(w){
+        ReactDOM.render(
+          React.createElement(NoHeader.Header, ux.eldorado.data.props),
+          document.getElementById('header-fe15242cb561fd101bbbc9e8374e864d')
+        );
+        ReactDOM.render(
+          React.createElement(NoHeader.Footer, ux.eldorado.data.props),
+          document.getElementById('footer-fe15242cb561fd101bbbc9e8374e864d')
+        );
+
+  })(window);</script><div class="sb-nopreview sb-wrapper"><div class="sb-nopreview_main"><h1 class="sb-nopreview_heading sb-heading">No Preview</h1><p>Sorry, but you either have no stories or none are selected somehow.</p><ul><li>Please check the Storybook config.</li><li>Try reloading the page.</li></ul><p>If the problem persists, check the browser console, or the terminal you've run Storybook from.</p></div></div><div class="sb-errordisplay sb-wrapper"><pre id="error-message" class="sb-heading"></pre><pre class="sb-errordisplay_code"><code id="error-stack"></code></pre></div><div id="root"></div><div id="docs-root"></div><script>window['LOGLEVEL'] = "info";
+            
+        
+            
+              window['FRAMEWORK_OPTIONS'] = {};
+            
+        
+            
+              window['FEATURES'] = {"postcss":true};
+            
+        
+            
+              window['STORIES'] = [{"glob":"../stories/**/*.stories.mdx","specifier":{"directory":"./stories","titlePrefix":"","files":"*.stories.mdx"}},{"glob":"../stories/**/*.stories.@(js|jsx|ts|tsx)","specifier":{"directory":"./stories","titlePrefix":"","files":"*.stories.@(js|jsx|ts|tsx)"}}];</script><script src="runtime~main.961676d8.iframe.bundle.js"></script><script src="301.1bd25d5c.iframe.bundle.js"></script><script src="main.33acf8a1.iframe.bundle.js"></script></body></html>
